@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --color-red-btn: #C42727;
+  --color-text-dis: #757575;
+  --color-text: #787878;
+  --color-text: #787878;
+  --color-main: #ED6A22;
+  --color-main-bold: #D8601F;
+}
