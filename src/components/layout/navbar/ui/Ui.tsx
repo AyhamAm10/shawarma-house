@@ -4,11 +4,11 @@ import { navbarData } from "../../../../data/static-navbar-data";
 
 const Ui = () => {
   return (
-    <div className="flex px-9 sm:px-3 md:px-6 py-2 items-center justify-between">
+    <div className="flex px-3 sm:px-5 md:px-6 md:py-2 items-center justify-between">
       {/* logo */}
       <img src={logo} alt="shawarma house logo" />
       {/* list */}
-      <ul className="flex items-center gap-8">
+      <ul className="hidden sm:flex items-center gap-8 ">
         {navbarData.map((item) => (
           <li key={`navbar item ${item.title}`} className="text-text-dis cursor-pointer hover:text-main">{item.title}</li>
         ))}

@@ -40,7 +40,7 @@ export const useScrollAnimation = ({
       transition: {
         duration,
         delay,
-        ease: [0.42, 0, 0.58, 1], // easeInOut
+        ease: [0.42, 0, 0.58, 1], 
       },
     },
   };

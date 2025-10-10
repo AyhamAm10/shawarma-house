@@ -3,12 +3,14 @@ import { useRef, useEffect, useState } from "react";
 import { hoverVariant } from "../../../variants/hoverVariant";
 import img from "../../../assets/test_section.jpg";
 import icon from "../../../assets/Group.svg";
+// import { useMirror } from "../store";
 
 export function Sections() {
   const containerRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
-
+  // const data = useMirror("data")
+  // console.log(data)
   useEffect(() => {
     const updateWidth = () => {
       if (containerRef.current && innerRef.current) {
@@ -23,13 +25,14 @@ export function Sections() {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
+
   return (
     <div className="px-2 sm:px-5 lg:px-7">
       <motion.div
         variants={hoverVariant}
         initial="hidden"
         whileInView="visible"
-        className="my-20 mx-20 w-full sm:w-1/2"
+        className="m-5 sm:m-9 md:m-20 w-full sm:w-1/2"
       >
         <h1 className="text-main-bold font-semibold text-3xl">أقسامنا </h1>
         <p className="text-text text-xl">

@@ -1,48 +1,72 @@
 import img from "../../../../assets/Frame 1618871733.png";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { hoverVariant } from "../../../../variants/hoverVariant";
 
 export function Variant1() {
   const ref = useRef(null);
-
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "center start"], 
+    offset: ["start end", "center start"],
   });
 
-  const rawTextX = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  useEffect(() => {
+    const handleResize = () => setIsLargeScreen(window.innerWidth >= 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const rawTextX = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isLargeScreen ? [0, -200] : [0, 0]
+  );
   const textX = useSpring(rawTextX, { stiffness: 80, damping: 20 });
 
-  const rawImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+  const rawImageScale = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isLargeScreen ? [1, 1.3] : [1, 1]
+  );
   const imageScale = useSpring(rawImageScale, { stiffness: 80, damping: 20 });
 
-  const rawBoxY = useTransform(scrollYProgress, [0, 1], [-250, 0]);
+  const rawBoxY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isLargeScreen ? [-250, 0] : [0, 0]
+  );
   const boxY = useSpring(rawBoxY, { stiffness: 80, damping: 20 });
 
-  const rawBoxOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const rawBoxOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.3],
+    isLargeScreen ? [0, 1] : [1, 1]
+  );
   const boxOpacity = useSpring(rawBoxOpacity, { stiffness: 80, damping: 20 });
-
   return (
-    <div ref={ref}>
+    <div ref={ref} className="flex flex-col gap-8" >
       <motion.h1
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         style={{ x: textX }}
+        
         transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
-        className="w-full sm:w-3/4 text-center text-7xl text-white font-semibold my-3 sm:my-6 md:my-9"
+        className="w-full mb-4 sm:w-3/4 text-center text-7xl text-white font-semibold my-3 sm:my-6 md:my-9"
       >
         اللي جرّب، ما استغنى... وش قالوا؟
       </motion.h1>
 
-      <div className="flex items-end justify-between">
+      <div className="flex flex-col-reverse md:flex-row items-end justify-between gap-5">
         <motion.div
           variants={hoverVariant}
-          style={{ y: boxY, opacity: boxOpacity }}
+          viewport={{ once: true }}
           initial="hidden"
           whileInView="visible"
+          style={{ y: boxY, opacity: boxOpacity }}
           className="p-4 sm:p-8 bg-white rounded-2xl max-w-[450px]"
         >
           <div className="flex flex-col gap-4 ">
@@ -64,6 +88,7 @@ export function Variant1() {
           initial="hidden"
           whileInView="visible"
           className="overflow-hidden rounded-2xl"
+          
           // style={{ scale: imageScale }}
         >
           <motion.img

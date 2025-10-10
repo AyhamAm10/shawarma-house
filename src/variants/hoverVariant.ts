@@ -3,7 +3,7 @@ import { cubicBezier } from "framer-motion";
 export const hoverVariant = {
   hidden: {
     opacity: 0,
-    y: 40,
+    y: 100,
     transition: {
       duration: 1,
       ease: cubicBezier(0.42, 0, 0.58, 1),

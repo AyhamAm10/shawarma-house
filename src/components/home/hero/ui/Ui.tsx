@@ -30,10 +30,6 @@ export default function Ui() {
           />
         </motion.div>
       </div>
-
-      {/* <div className="h-[100vh] bg-white flex items-center justify-center">
-       
-      </div> */}
     </>
   );
 }
