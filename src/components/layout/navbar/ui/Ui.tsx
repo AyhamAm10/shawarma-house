@@ -26,7 +26,7 @@ const Ui = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-[9990] transition-all duration-500 ${
         scrolledUp
           ? "bg-white/95 backdrop-blur-none shadow-md"
           : "bg-white/10 backdrop-blur-md"
