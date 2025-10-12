@@ -61,7 +61,7 @@ export function Sections() {
               className="relative min-w-[300px] h-[424px] rounded-2xl  group overflow-visible"
               whileTap={{ scale: 0.97 }}
             >
-              <div className="overflow-hidden rounded-2xl">
+              <div className="overflow-hidden rounded-2xl w-[300px] h-[418.3px]">
                 <img
                   draggable={false}
                   src={item.image}
