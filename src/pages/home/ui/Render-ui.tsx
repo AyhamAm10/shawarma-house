@@ -3,6 +3,7 @@ import { Sections } from "./Sections";
 import { Feedback } from "./Feedback";
 import DownloadApp from "./DownloadApp";
 import MapComponent from "./Map";
+import { Footer } from "../../../components/layout/footer";
 
 export default function RenderUi() {
   return (
@@ -13,7 +14,7 @@ export default function RenderUi() {
       <Feedback />
       <DownloadApp />
       <MapComponent />
-      <div className="h-[200vh]"></div>
+      <Footer />
     </div>
   );
 }

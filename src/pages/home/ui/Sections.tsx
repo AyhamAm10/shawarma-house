@@ -1,16 +1,18 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { hoverVariant } from "../../../variants/hoverVariant";
-import img from "../../../assets/test_section.jpg";
 import icon from "../../../assets/Group.svg";
+import { useMirror } from "../store";
 // import { useMirror } from "../store";
 
 export function Sections() {
   const containerRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
-  // const data = useMirror("data")
-  // console.log(data)
+  const data = useMirror("data");
+  // const looder = useMirror("loading")
+  console.log(data);
+
   useEffect(() => {
     const updateWidth = () => {
       if (containerRef.current && innerRef.current) {
@@ -22,9 +24,14 @@ export function Sections() {
 
     updateWidth();
     window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
 
+    const timeout = setTimeout(updateWidth, 300);
+
+    return () => {
+      window.removeEventListener("resize", updateWidth);
+      clearTimeout(timeout);
+    };
+  }, [data]);
 
   return (
     <div className="px-2 sm:px-5 lg:px-7">
@@ -50,7 +57,7 @@ export function Sections() {
           dragConstraints={{ left: 0, right: width }}
           className="flex gap-16"
         >
-          {[...Array(10)].map((_, i) => (
+          {data?.map((item, i) => (
             <motion.div
               key={i}
               className="relative min-w-[300px] h-[424px] rounded-2xl  group overflow-visible"
@@ -59,7 +66,7 @@ export function Sections() {
               <div className="overflow-hidden rounded-2xl">
                 <img
                   draggable={false}
-                  src={img}
+                  src={item.image}
                   alt={`slide-${i}`}
                   className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 brightness-65 group-hover:brightness-100"
                 />
@@ -67,7 +74,7 @@ export function Sections() {
 
               <span className="absolute rounded-4xl bg-main px-5 py-3 bottom-3.5 right-[-40px] shadow-lg transition-all duration-500 ease-in-out group-hover:translate-x-[-5px]">
                 <div className="flex items-center gap-2">
-                  <span className="text-white">أخر الأخبار</span>
+                  <span className="text-white">{item.title_ar} </span>
                   <img src={icon} alt="" />
                 </div>
               </span>

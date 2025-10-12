@@ -55,7 +55,7 @@ export function Variant1() {
         style={{ x: textX }}
         
         transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
-        className="w-full mb-4 sm:w-3/4 text-center text-7xl text-white font-semibold my-3 sm:my-6 md:my-9"
+        className="w-full mb-4 sm:w-3/4 text-center text-4xl sm:text-5xl md:text-7xl text-white font-semibold my-3 sm:my-6 md:my-9"
       >
         اللي جرّب، ما استغنى... وش قالوا؟
       </motion.h1>
