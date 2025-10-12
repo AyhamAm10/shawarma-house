@@ -3,14 +3,13 @@ import { useRef, useEffect, useState } from "react";
 import { hoverVariant } from "../../../variants/hoverVariant";
 import icon from "../../../assets/Group.svg";
 import { useMirror } from "../store";
-// import { useMirror } from "../store";
 
 export function Sections() {
   const containerRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
   const data = useMirror("data");
-  // const looder = useMirror("loading")
+  
   console.log(data);
 
   useEffect(() => {
@@ -67,7 +66,7 @@ export function Sections() {
                 <img
                   draggable={false}
                   src={item.image}
-                  alt={`slide-${i}`}
+                  alt={`slide-${item.title_ar}`}
                   className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 brightness-65 group-hover:brightness-100"
                 />
               </div>
@@ -75,7 +74,7 @@ export function Sections() {
               <span className="absolute rounded-4xl bg-main px-5 py-3 bottom-3.5 right-[-40px] shadow-lg transition-all duration-500 ease-in-out group-hover:translate-x-[-5px]">
                 <div className="flex items-center gap-2">
                   <span className="text-white">{item.title_ar} </span>
-                  <img src={icon} alt="" />
+                  <img src={item.icon} alt="" />
                 </div>
               </span>
             </motion.div>
