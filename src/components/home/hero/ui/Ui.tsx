@@ -57,12 +57,12 @@ export default function HeroScroll() {
       {showNavbar && <Navbar />}
       <div className="bg-main-light h-[111px] flex items-center justify-center">
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-1 font-black text-xl sm:text-2xl md:text-4xl text-white">
+          <div className="flex items-center gap-1 font-black text-sm sm:text-2xl md:text-4xl text-white">
             <span>M</span>
             <span>10</span>
             <span>+</span>
           </div>
-          <span className="text-white text-lg sm:text-xl font-black">
+          <span className="text-white text-sm sm:text-xl font-black">
             وجبة تم تقديمها
           </span>
           <img src={googleIcon} alt="google play link for shawarma house" className="h-7 sm:h-9 md:h-12" />
