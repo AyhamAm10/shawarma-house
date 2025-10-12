@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { hoverVariant } from "../../../variants/hoverVariant";
-import icon from "../../../assets/Group.svg";
 import { useMirror } from "../store";
 
 export function Sections() {
