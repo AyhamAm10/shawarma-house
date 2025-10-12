@@ -56,7 +56,7 @@ export default function HeroScroll() {
 
       {showNavbar && <Navbar />}
       <div className="bg-main-light h-[111px] flex items-center justify-center">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 px-2">
           <div className="flex items-center gap-1 font-black text-sm sm:text-2xl md:text-4xl text-white">
             <span>M</span>
             <span>10</span>
