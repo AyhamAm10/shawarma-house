@@ -23,7 +23,7 @@ export default function DownloadApp() {
   return (
     <div
       ref={ref}
-      className="relative my-20 md:my-0 h-auto md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden"
+      className="relative my-20  h-auto md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 overflow-hidden -z-10">
         <motion.img

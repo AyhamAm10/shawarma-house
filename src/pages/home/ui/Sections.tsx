@@ -32,22 +32,22 @@ export function Sections() {
   }, [data]);
 
   return (
-    <div className="px-2 sm:px-5 lg:px-7">
+    <div className="px-2 sm:px-5 lg:px-7 mb-10 sm:mb-20">
       <motion.div
         variants={hoverVariant}
         initial="hidden"
         whileInView="visible"
-        className="m-5 sm:m-9 md:m-20 w-full sm:w-1/2"
+        className="m-5 sm:m-9 md:m-20 w-full sm:w-2/3"
       >
-        <h1 className="text-main-bold font-semibold text-3xl">أقسامنا </h1>
-        <p className="text-text text-xl">
+        <h1 className="text-main-bold font-semibold text-3xl sm:text-5xl mb-10">أقسامنا </h1>
+        <p className="text-text text-xl sm:text-2xl md:text-3xl">
           تصفح قائمة بيت الشاورما بكل سهولة — من الشاورما الأصيلة إلى الأطباق
           الجانبية والعروض اليومية. كل ما تحبه في مكان واحد!
         </p>
       </motion.div>
       <div
         ref={containerRef}
-        className="cursor-grab active:cursor-grabbing px-4 py-8 relative overflow-hidden"
+        className="cursor-grab active:cursor-grabbing px-4  relative overflow-hidden "
       >
         <motion.div
           ref={innerRef}
