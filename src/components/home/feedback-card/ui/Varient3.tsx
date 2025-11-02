@@ -104,7 +104,6 @@
 //   );
 // }
 
-
 import img from "../../../../assets/Frame 1618871733.png";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
@@ -156,24 +155,57 @@ export function Varient3() {
 
   return (
     <div ref={ref} className="relative flex flex-col gap-8">
-      {/* النص الخلفي */}
-      <motion.h1
-        className="absolute top-0 left-1/2 -translate-x-1/2 text-center text-4xl sm:text-5xl md:text-7xl font-semibold text-white opacity-50 z-0"
-        style={{ x: textX }}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
-        viewport={{ once: true }}
-      >
-        اللي جرّب، ما استغنى... وش قالوا؟
-      </motion.h1>
+      {/* ===== النص الخاص بالموبايل فقط ===== */}
+      {!isLargeScreen && (
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
+          className="w-full sm:w-3/4 text-center text-4xl sm:text-5xl text-white font-semibold my-3 sm:my-6 md:my-9"
+        >
+          اللي جرّب، ما استغنى... وش قالوا؟
+        </motion.h1>
+      )}
 
-      {/* المحتوى الأساسي */}
+      {/* ===== النص الخلفي + الأمامي (للحواسيب فقط) ===== */}
+      {isLargeScreen && (
+        <>
+          {/* النص الخلفي */}
+          <motion.h1
+            className="absolute top-0 left-1/2 -translate-x-1/2 text-7xl font-semibold text-white opacity-40 z-0 text-center"
+            style={{ x: textX }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
+            viewport={{ once: true }}
+          >
+            اللي جرّب، ما استغنى... وش قالوا؟
+          </motion.h1>
+
+          {/* النص الأمامي المفرغ */}
+          <motion.h1
+            className="absolute top-0 left-1/2 -translate-x-1/2 text-7xl font-semibold text-transparent z-20 text-center"
+            style={{
+              WebkitTextStroke: "1.5px white",
+              x: textX,
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
+            viewport={{ once: true }}
+          >
+            اللي جرّب، ما استغنى... وش قالوا؟
+          </motion.h1>
+        </>
+      )}
+
+      {/* ===== المحتوى ===== */}
       <motion.div
         variants={hoverVariant}
         initial="hidden"
         whileInView="visible"
-        className="relative z-10 flex flex-col md:flex-row items-end justify-between gap-5"
+        className="flex flex-col md:flex-row items-end justify-between gap-5 relative z-10"
       >
         <motion.div
           variants={hoverVariant}
@@ -209,18 +241,6 @@ export function Varient3() {
           </div>
         </motion.div>
       </motion.div>
-
-      {/* النص الأمامي (outline) */}
-      <motion.h1
-        className="absolute top-0 left-1/2 -translate-x-1/2 text-center text-4xl sm:text-5xl md:text-7xl font-semibold text-transparent z-20"
-        style={{ WebkitTextStroke: "1.5px white", x: textX }}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
-        viewport={{ once: true }}
-      >
-        اللي جرّب، ما استغنى... وش قالوا؟
-      </motion.h1>
     </div>
   );
 }

@@ -126,7 +126,6 @@ import { hoverVariant } from "../../../../variants/hoverVariant";
 
 export function Varient2() {
   const ref = useRef(null);
-
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
@@ -182,19 +181,52 @@ export function Varient2() {
 
   return (
     <div ref={ref} className="relative flex flex-col gap-8">
-      {/* النص الخلفي (وراء العناصر) */}
-      <motion.h1
-        className="absolute top-0 left-1/2 -translate-x-1/2 text-4xl sm:text-5xl md:text-7xl font-semibold text-white opacity-50 z-0 text-center"
-        style={{ x: textX }}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
-        viewport={{ once: true }}
-      >
-        اللي جرّب، ما استغنى... وش قالوا؟
-      </motion.h1>
+      {/* ===== النص الخاص بالموبايل ===== */}
+      {!isLargeScreen && (
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
+          className="w-full sm:w-3/4 text-center text-4xl sm:text-5xl text-white font-semibold my-3 sm:my-6 md:my-9"
+        >
+          اللي جرّب، ما استغنى... وش قالوا؟
+        </motion.h1>
+      )}
 
-      {/* المحتوى الأساسي */}
+      {/* ===== النص الخلفي والأمامي (للحواسيب) ===== */}
+      {isLargeScreen && (
+        <>
+          {/* النص الخلفي */}
+          <motion.h1
+            className="absolute top-0 left-1/2 -translate-x-1/2 text-7xl font-semibold text-white opacity-40 z-0 text-center"
+            style={{ x: textX }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
+            viewport={{ once: true }}
+          >
+            اللي جرّب، ما استغنى... وش قالوا؟
+          </motion.h1>
+
+          {/* النص المفرغ (outline) */}
+          <motion.h1
+            className="absolute top-0 left-1/2 -translate-x-1/2 text-7xl font-semibold text-transparent z-20 text-center"
+            style={{
+              WebkitTextStroke: "1.5px white",
+              x: textX,
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
+            viewport={{ once: true }}
+          >
+            اللي جرّب، ما استغنى... وش قالوا؟
+          </motion.h1>
+        </>
+      )}
+
+      {/* ===== المحتوى ===== */}
       <div className="relative z-10 flex flex-col-reverse md:flex-row items-end justify-between gap-5">
         <motion.div
           variants={hoverVariant}
@@ -241,18 +273,6 @@ export function Varient2() {
           </div>
         </motion.div>
       </div>
-
-      {/* النص الأمامي (outline فوق العناصر) */}
-      <motion.h1
-        className="absolute top-0 left-1/2 -translate-x-1/2 text-4xl sm:text-5xl md:text-7xl font-semibold text-transparent z-20 text-center"
-        style={{ WebkitTextStroke: "1.5px white", x: textX }}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
-        viewport={{ once: true }}
-      >
-        اللي جرّب، ما استغنى... وش قالوا؟
-      </motion.h1>
     </div>
   );
 }
