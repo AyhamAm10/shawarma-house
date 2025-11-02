@@ -122,7 +122,7 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { hoverVariant } from "../../../../variants/hoverVariant";
+// import { hoverVariant } from "../../../../variants/hoverVariant";
 
 export function Varient2() {
   const ref = useRef(null);
@@ -146,38 +146,6 @@ export function Varient2() {
     isLargeScreen ? [0, -200] : [0, 0]
   );
   const textX = useSpring(rawTextX, { stiffness: 80, damping: 20 });
-
-  const rawBox1Y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    isLargeScreen ? [200, 0] : [0, 0]
-  );
-  const box1Y = useSpring(rawBox1Y, { stiffness: 80, damping: 20 });
-  const rawBox1Opacity = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    isLargeScreen ? [0, 1] : [1, 1]
-  );
-  const box1Opacity = useSpring(rawBox1Opacity, { stiffness: 80, damping: 20 });
-
-  const rawBox2Y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    isLargeScreen ? [200, 0] : [0, 0]
-  );
-  const rawBox2X = useTransform(
-    scrollYProgress,
-    [0, 1],
-    isLargeScreen ? [150, 0] : [0, 0]
-  );
-  const box2Y = useSpring(rawBox2Y, { stiffness: 80, damping: 20 });
-  const box2X = useSpring(rawBox2X, { stiffness: 80, damping: 20 });
-  const rawBox2Opacity = useTransform(
-    scrollYProgress,
-    [0.1, 0.4],
-    isLargeScreen ? [0, 1] : [1, 1]
-  );
-  const box2Opacity = useSpring(rawBox2Opacity, { stiffness: 80, damping: 20 });
 
   return (
     <div ref={ref} className="relative flex flex-col gap-8">
@@ -229,8 +197,8 @@ export function Varient2() {
       {/* ===== المحتوى ===== */}
       <div className="relative z-10 flex flex-col-reverse md:flex-row items-end justify-between gap-5">
         <motion.div
-          variants={hoverVariant}
-          style={{ y: box1Y, opacity: box1Opacity }}
+          // variants={hoverVariant}
+          // style={{ y: box1Y, opacity: box1Opacity }}
           initial="hidden"
           whileInView="visible"
           className="p-4 sm:p-8 bg-white rounded-2xl max-w-[420px]"
@@ -253,8 +221,8 @@ export function Varient2() {
         </motion.div>
 
         <motion.div
-          variants={hoverVariant}
-          style={{ y: box2Y, x: box2X, opacity: box2Opacity }}
+          // variants={hoverVariant}
+          // style={{ y: box2Y, x: box2X, opacity: box2Opacity }}
           initial="hidden"
           whileInView="visible"
           className="p-4 sm:p-8 bg-white rounded-2xl max-w-[420px]"
