@@ -9,7 +9,7 @@ import vector from "../../../../assets/vector/Nav Bar/Navigation/Vector.svg";
 
 export default function Ui() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-[1380px] mx-auto py-20 px-5 gap-6 sm:gap-8 md:gap-16">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-[1680px] mx-auto py-20 px-5 gap-6 sm:gap-8 md:gap-16">
       <div className="flex flex-col gap-4">
         <img src={logo} alt="shawrma house logo" width={144} />
         <p className="text-text">
