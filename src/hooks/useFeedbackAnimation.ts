@@ -27,9 +27,8 @@ export const useFeedbackAnimation = () => {
     rest: { skewY: 1, scale: 1 },
     hover: {
       scale: 0.95,
-      skewY: 0.5,
       transition: {
-        duration: 0.3,
+        duration: 0.6,
         ease: "easeInOut",
       },
     },
@@ -46,8 +45,8 @@ export const useFeedbackAnimation = () => {
       scale: 50,
       opacity: 0.3,
       transition: {
-        duration: 0.6,
-        ease: "easeOut",
+        duration: 0.7,
+        ease: "easeInOut",
       },
     },
   };
