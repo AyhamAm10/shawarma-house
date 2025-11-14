@@ -13,7 +13,7 @@ export const navbarData = [
   },
   {
     title: "بيت ما فيه اسرار",
-    link: "/",
+    link: "/secrets",
   },
   {
     title: "وجباتنا",

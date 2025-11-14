@@ -1,0 +1,1 @@
+export { Factory as Secrets } from "./factory"

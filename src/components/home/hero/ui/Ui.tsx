@@ -22,16 +22,6 @@ export default function HeroScroll() {
     damping: 20,
   });
 
-  // const logoX = useSpring(useTransform(cappedScroll, [0, endPoint], ["0vw", "40vw"]), {
-  //   stiffness: 80,
-  //   damping: 20,
-  // });
-
-  // const logoY = useSpring(useTransform(cappedScroll, [0, endPoint], ["0vh", "-40vh"]), {
-  //   stiffness: 80,
-  //   damping: 20,
-  // });
-
   const logoOpacity = useSpring(
     useTransform(cappedScroll, [endPoint - 0.05, endPoint], [1, 0]),
     { stiffness: 80, damping: 20 }

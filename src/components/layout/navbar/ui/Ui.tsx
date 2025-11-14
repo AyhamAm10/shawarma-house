@@ -3,6 +3,7 @@ import storeIcon from "../../../../assets/store.svg";
 import logo from "../../../../assets/SVG.svg";
 import { navbarData } from "../../../../data/static-navbar-data";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Ui = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,7 +48,7 @@ const Ui = () => {
               key={item.title}
               className="text-text-dis cursor-pointer hover:text-main transition-colors"
             >
-              {item.title}
+              <Link to={item.link}>{item.title}</Link>
             </li>
           ))}
         </ul>
@@ -83,7 +84,9 @@ const Ui = () => {
       {/* mobile menu */}
       <motion.div
         initial={{ opacity: 0, height: 0 }}
-        animate={menuOpen ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
+        animate={
+          menuOpen ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }
+        }
         transition={{ duration: 0.3 }}
         className="overflow-hidden md:hidden bg-white/90 backdrop-blur-md shadow-md"
       >

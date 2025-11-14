@@ -7,7 +7,7 @@ import { Footer } from "../../../components/layout/footer";
 
 export default function RenderUi() {
   return (
-    <div dir="rtl" className="h-[400vh]">
+    <div dir="rtl" className="">
       {/* <Navbar /> */}
       <HeroSection />
       <Sections />
