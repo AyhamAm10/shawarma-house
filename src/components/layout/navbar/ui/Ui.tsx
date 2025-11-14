@@ -10,7 +10,6 @@ const Ui = () => {
   const [scrolledUp, setScrolledUp] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // handle scroll to toggle background
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -96,7 +95,7 @@ const Ui = () => {
               key={`mobile-${item.title}`}
               className="text-text-dis cursor-pointer hover:text-main transition-colors"
             >
-              {item.title}
+              <Link to={item.link}>{item.title}</Link>
             </li>
           ))}
           <li className="flex items-center gap-4 mt-2">
