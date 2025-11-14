@@ -1,11 +1,13 @@
 import provides from "../../../assets/provides.png";
 import sources from "../../../assets/searces.png";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function Sections() {
   return (
     <div className="p-6 sm:p-12 md:p-20 mt-52">
       <div className="flex flex-col items-center gap-3 sm:gap-6 ">
-        <img src={provides} alt="provids" className="w-full" />
+        <LazyLoadImage src={provides} alt="provids" className="w-full" />
         <h1 className="font-semibold text-lg sm:text-3xl md:text-5xl  text-main">
           موردينا
         </h1>
@@ -19,7 +21,7 @@ export default function Sections() {
         </p>
       </div>
       <div className="flex flex-col items-center gap-3 sm:gap-6 my-6 sm:my-12 md:my-20">
-        <img src={sources} alt="provids" className="w-full" />
+        <LazyLoadImage src={sources} alt="provids" className="w-full" />
         <h1 className="font-semibold text-lg sm:text-3xl md:text-5xl  text-main">
           مصادرنا
         </h1>
