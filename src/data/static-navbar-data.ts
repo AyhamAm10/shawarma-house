@@ -24,6 +24,10 @@ export const navbarData = [
     link: "/",
   },
   {
+    title: "بطاقة الولاء",
+    link: "/loyalty",
+  },
+  {
     title: "تواصل معنا",
     link: "/",
   },
